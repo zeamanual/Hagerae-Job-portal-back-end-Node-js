@@ -1,0 +1,29 @@
+{
+  "name": "hagerae-job-portal-back-end-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zeamanual/Hagerae-Job-portal-back-end-Node-js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zeamanual/Hagerae-Job-portal-back-end-Node-js/issues"
+  },
+  "homepage": "https://github.com/zeamanual/Hagerae-Job-portal-back-end-Node-js#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
