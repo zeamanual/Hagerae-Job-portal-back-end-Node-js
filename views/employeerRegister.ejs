@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+       <!-- Font Icon -->
+       <link rel="stylesheet" href="/assets/form/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+       <!-- Main css -->
+       <link rel="stylesheet" href="/assets/form/css/style.css">
+
+    <!-- CSS here -->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="assets/css/flaticon.css">
+        <link rel="stylesheet" href="assets/css/price_rangs.css">
+        <link rel="stylesheet" href="assets/css/slicknav.css">
+        <link rel="stylesheet" href="assets/css/animate.min.css">
+        <link rel="stylesheet" href="assets/css/magnific-popup.css">
+        <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="assets/css/themify-icons.css">
+        <link rel="stylesheet" href="assets/css/slick.css">
+        <link rel="stylesheet" href="assets/css/nice-select.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+    <title>Employee Register Form</title>
+</head>
+<body>
+      <!-- Preloader Start -->
+      <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="/assets/img/logo/logo.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <%- include("./partials/header") %>
+    <main>
+        <h2>For employer</h2>
+        <div class="main">
+            
+            <!-- Sign up form -->
+            <section class="signup">
+                <div class="container">
+                    <div class="signup-content">
+                        <div class="signup-form">
+                            <h2 class="form-title">Sign up</h2>
+                            <form method="POST" class="register-form" id="register-form">
+                                <div class="form-group">
+                                    <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                    <input type="text" name="name" id="name" placeholder="Your Name"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                    <input type="email" name="email" id="email" placeholder="Your Email"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                    <input type="password" name="pass" id="pass" placeholder="Password"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                                    <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"/>
+                                </div>
+                             
+                                <div class="form-group">
+                                    <label for="name"><i class="fa-solid fa-handshake-angle"></i></label>
+                                    <input type="text" name="company-name" id="name" placeholder="Your Company Name"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="name"><i class="fa-solid fa-circle-info"></i></label>
+                                    <input type="text" name="company-description" id="name" placeholder="Company Description"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="name"><i class="fa-solid fa-location-dot"></i></label>
+                                    <input type="text" name="company-location" id="name" placeholder="Company Location"/>
+                                </div>
+                                <h5>Select Your Company Logo</h5>
+                                <div class="form-group">
+                                    
+                                    <label for="company-website-tw d-block">Upload Featured Image</label> <br>
+                                    <label class="btn btn-primary btn-md btn-file">
+                                      Browse File<input type="file" hidden="" id='company-website-tw '>
+                                    </label>
+                                  </div>
+                                  <!-- <div class="form-group">
+                                    <label for="name"><i class="fa-solid fa-circle-info"></i></label>
+                                    <input class="btn btn-primary" type="file" name="company-logo" id="name"/>
+                                </div> -->
+
+                                <div class="form-group">
+                                    <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                                    <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                                </div>
+                                <div class="form-group form-button">
+                                    <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="signup-image">
+                            <figure><img src="/assets/form/images/signup-image.jpg" alt="sing up image"></figure>
+                            <a href="#" class="signup-link">I am already member</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    
+           
+    
+        </div>
+    </main>
+    <%- include('./partials/footer') %>
+
+	<!-- JS here -->
+	
+		<!-- All JS Custom Plugins Link Here here -->
+        <script src="/assets/js/vendor/modernizr-3.5.0.min.js"></script>
+		<!-- Jquery, opper, Bootstrap -->
+		<script src="/assets/js/vendor/jquery-1.12.4.min.js"></script>
+        <script src="/assets/js/popper.min.js"></script>
+        <script src="/assets/js/bootstrap.min.js"></script>
+	    <!-- Jquery Mbile Menu -->
+        <script src="/assets/js/jquery.slicknav.min.js"></script>
+		<!-- Jquery Sick , Owl-Carousel Range -->
+        <script src="/assets/js/owl.carousel.min.js"></script>
+        <script src="/assets/js/slick.min.js"></script>
+        <script src="/assets/js/price_rangs.js"></script>
+		<!-- One Page Animated-HeadLin -->
+        <script src="/assets/js/wow.min.js"></script>
+		<script src="/assets/js/animated.headline.js"></script>
+        <script src="/assets/js/jquery.magnific-popup.js"></script>
+		<!-- Scrollup nice-select, sticky -->
+        <script src="/assets/js/jquery.scrollUp.min.js"></script>
+        <script src="/assets/js/jquery.nice-select.min.js"></script>
+		<script src="/assets/js/jquery.sticky.js"></script>
+    
+        <!-- contact s -->
+        <script src="/assets/js/contact.js"></script>
+        <script src="/assets/js/jquery.form.js"></script>
+        <script src="/assets/js/jquery.validate.min.js"></script>
+        <script src="/assets/js/mail-script.js"></script>
+        <script src="/assets/js/jquery.ajaxchimp.min.js"></script>
+    
+		<!-- Jquery Pugins, main Jquery -->	
+        <script src="/assets/js/plugins.js"></script>
+        <script src="/assets/js/main.js"></script>
+           <!-- JS -->
+    <script src="/assets/form/vendor/jquery/jquery.min.js"></script>
+    <script src="/assets/form/js/main.js"></script>
+        
+    <!-- font awsome -->
+    <script src="https://kit.fontawesome.com/d0a738a2b7.js" crossorigin="anonymous"></script>
+
+</body>
+</html>
