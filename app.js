@@ -19,6 +19,9 @@ app.get('/employee',(req,res)=>{
 app.get('/login',(req,res)=>{
     res.status(200).render("login")
 })
+app.get('/post',(req,res)=>{
+    res.status(200).render("post job")
+})
 app.get('/detail',(req,res)=>{
     res.status(200).render("job_details")
 })
