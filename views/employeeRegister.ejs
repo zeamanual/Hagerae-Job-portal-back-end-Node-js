@@ -13,18 +13,18 @@
        <!-- <link rel="stylesheet" href="/assets/form/css/style.css"> -->
 
     <!-- CSS here -->
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-        <link rel="stylesheet" href="assets/css/flaticon.css">
-        <link rel="stylesheet" href="assets/css/price_rangs.css">
-        <link rel="stylesheet" href="assets/css/slicknav.css">
-        <link rel="stylesheet" href="assets/css/animate.min.css">
-        <link rel="stylesheet" href="assets/css/magnific-popup.css">
-        <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
-        <link rel="stylesheet" href="assets/css/themify-icons.css">
-        <link rel="stylesheet" href="assets/css/slick.css">
-        <link rel="stylesheet" href="assets/css/nice-select.css">
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="/assets/css/flaticon.css">
+        <link rel="stylesheet" href="/assets/css/price_rangs.css">
+        <link rel="stylesheet" href="/assets/css/slicknav.css">
+        <link rel="stylesheet" href="/assets/css/animate.min.css">
+        <link rel="stylesheet" href="/assets/css/magnific-popup.css">
+        <link rel="stylesheet" href="/assets/css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="/assets/css/themify-icons.css">
+        <link rel="stylesheet" href="/assets/css/slick.css">
+        <link rel="stylesheet" href="/assets/css/nice-select.css">
+        <link rel="stylesheet" href="/assets/css/style.css">
     <title>Employee Register Form</title>
 </head>
 <body>
@@ -51,38 +51,41 @@
                     <div class="signup-content m-4 row align-items-center border rounded shadow-lg">
                         <div class="signup-form p-5 col-7">
                             <h2 class="form-title">Sign up</h2>
-                            <form class="row g-3">
+                            <% if(typeof error != 'undefined') {%>
+                              <p class = 'alert alert-danger'><%=error%></p>
+                              <% }%>
+                            <form action="/employee/signup" method="post" enctype="multipart/form-data" class="row g-3">
                                 <div class="col-md-6">
                                     <label for="inputEmail4" class="form-label">Name</label>
-                                    <input type="text" class="form-control" id="inputEmail4">
+                                    <input minlength="4" required type="text" name='name' class="form-control" id="inputEmail4">
                                   </div>
                                 <div class="col-md-6">
                                   <label for="inputEmail4" class="form-label">Email</label>
-                                  <input type="email" class="form-control" id="inputEmail4">
+                                  <input required type="email" name='email' class="form-control" id="inputEmail4">
                                 </div>
                                 <div class="col-md-6">
                                   <label for="inputPassword4" class="form-label">Password</label>
-                                  <input type="password" class="form-control" id="inputPassword4">
+                                  <input minlength="8" required type="password" name='password' class="form-control" id="inputPassword4">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputState" class="form-label">Gender</label>
-                                    <select id="inputState" class="form-select">
-                                      <option selected>Male</option>
-                                      <option>Female</option>
+                                    <select required name='gender' id="inputState" class="form-select">
+                                      <option value="MALE" >Male</option>
+                                      <option value = 'FEMALE'>Female</option>
                                     </select>
                                   </div>
                                   <div class="col-md-2">
                                     <label for="inputZip" class="form-label">age</label>
-                                    <input type="number" min="0" class="form-control" id="inputZip">
+                                    <input required type="number" name='age' min="0" class="form-control" id="inputZip">
                                   </div>
                                 <div class="col-10">
                                   <label for="inputAddress" class="form-label">Address</label>
-                                  <input type="text" class="form-control" id="inputAddress" placeholder="eg. Ethiopia, Addis Ababa">
+                                  <input required type="text" class="form-control" name = 'address' id="inputAddress" placeholder="eg. Ethiopia, Addis Ababa">
                                 </div>
                                 <div class="col-md-6 my-4">
                                     <label for="inputState" class="form-label">Education Level</label>
-                                    <select id="inputState" class="form-select">
-                                      <option >Ilitrate</option>
+                                    <select required name="educationalLevel" id="inputState" class="form-select">
+                                     
                                       <option>Primary</option>
                                       <option>Secondary</option>
                                       <option>preparatory</option>
@@ -92,11 +95,13 @@
                                       <option>Phd</option>
                                       <option>Doctrate</option>
                                       <option>Professor</option>
+                                      <option >Other</option>
                                     </select>
                                   </div>
                                   <div class="col-md-6 my-4">
                                     <label for="inputState" class="form-label">Field of Study</label>
-                                    <select id="inputState" class="form-select">
+                                    <select required name='fieldOfStudy' id="inputState" class="form-select">
+                                     
                                       <option >Engineering</option>
                                       <option>Medicine</option>
                                       <option>Healthe Officer</option>
@@ -105,12 +110,13 @@
                                       <option>Information Technology</option>
                                       <option>Accounting</option>
                                       <option>Management</option>
+                                      <option >Other</option>
                                     </select>
                                   </div>
                                   <div class="col-md-6">
                                     <label for="inputState" class="form-label">Experience Level</label>
-                                    <select id="inputState" class="form-select">
-                                      <option selected>0 Years</option>
+                                    <select required name = 'experienceLevel' id="inputState" class="form-select">
+                                      <option >0 Years</option>
                                       <option>1-2 Years</option>
                                       <option>3-4 Years</option>
                                       <option>+5 Years</option>
@@ -118,16 +124,16 @@
                                   </div>
                                   <div class="form-group col-12 my-2">
                                       
-                                      <label for="company-website-tw d-block"><h5> Upload Your Resume </h5></label> <br>
+                                      <label for="company-website-tw d-block"><h5> Upload Your Resume </h5><p  style="color: rgb(255, 0, 0);"> Only pdf format supported</p></label> <br>
                                       <label class="btn-dark btn-sm ">
-                                        Browse File<input type="file" hidden="" id='company-website-tw '>
+                                        <input required  style="" type="file" name='resume'  id='company-website-tw '>
                                       </label>
                                     </div>
                                     <div class="form-group col-12 my-2">
                                       
-                                        <label for="company-website-tw d-block"><h5> Upload Your Educational Qualification Documents</h5></label> <br>
+                                        <label for="company-website-tw d-block"><h5> Upload Your Educational Qualification Documents<p style="color: rgb(255, 0, 0);">Only pdf format supported</p></h5></label> <br>
                                         <label class="btn-dark btn-sm ">
-                                          Browse File<input type="file" hidden="" id='company-website-tw '>
+                                          <input required  type="file" name='doc'  id='company-website-tw '>
                                         </label>
                                       </div>
                                 <!-- <div class="col-12">
