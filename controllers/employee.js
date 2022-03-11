@@ -1,4 +1,5 @@
 let Employee = require('../models/employee')
+let Employer = require('../models/employer')
 let bcrypt = require('bcrypt')
 
 let getEmployeeSignupForm = (req,res)=>{
@@ -17,6 +18,10 @@ let employeeSignup = async(req,res)=>{
     
         
             let {name,email,password,gender,age,address,educationalLevel,fieldOfStudy,experienceLevel}=req.body
+
+            if(await Employer.find({email:email}) && await Employee.find({email:email})){
+                return res.status(400).render('employeeRegister',{error:"Email Already Registered"})
+            }
             let hashed = await bcrypt.hash(password,10)
             Employee.create({
                 name,

@@ -4,6 +4,7 @@ let app = express()
 let mongoose = require('mongoose')
 let cors = require('cors')
 let employee = require('./routes/employee')
+let employer = require('./routes/employer')
 
 
 
@@ -22,6 +23,7 @@ app.use(express.static('./uploads'))
 app.set('view engine','ejs')
 app.set('views','./views')
 app.use('/employee',employee)
+app.use('/employer',employer)
 
 // console.log(typeof bldf != 'undefined')
 app.get('/',(req,res)=>{

@@ -1,6 +1,6 @@
 let router = require('express').Router()
 
-let {uploads} = require('../config/multer config')
+let uploads = require('../config/multer config')
 
 let {getEmployeeSignupForm,employeeSignup} = require('../controllers/employee')
 

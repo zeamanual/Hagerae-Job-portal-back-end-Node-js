@@ -34,7 +34,7 @@ let EmployeeSchema = new Schema({
     educationalLevel:{
         type:String,
         required:true,
-        default:'Illitrate'
+        default:'Other'
 
     },
     fieldOfStudy:{

@@ -22,5 +22,5 @@ fileFilter:(req,file,cb)=>{
     console.log(file)
 }
 })
-module.exports = {uploads}
+module.exports = uploads
 

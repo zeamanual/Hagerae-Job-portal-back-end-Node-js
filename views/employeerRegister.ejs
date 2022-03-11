@@ -13,18 +13,18 @@
        <link rel="stylesheet" href="/assets/form/css/style.css">
 
     <!-- CSS here -->
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-        <link rel="stylesheet" href="assets/css/flaticon.css">
-        <link rel="stylesheet" href="assets/css/price_rangs.css">
-        <link rel="stylesheet" href="assets/css/slicknav.css">
-        <link rel="stylesheet" href="assets/css/animate.min.css">
-        <link rel="stylesheet" href="assets/css/magnific-popup.css">
-        <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
-        <link rel="stylesheet" href="assets/css/themify-icons.css">
-        <link rel="stylesheet" href="assets/css/slick.css">
-        <link rel="stylesheet" href="assets/css/nice-select.css">
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="/assets/css/flaticon.css">
+        <link rel="stylesheet" href="/assets/css/price_rangs.css">
+        <link rel="stylesheet" href="/assets/css/slicknav.css">
+        <link rel="stylesheet" href="/assets/css/animate.min.css">
+        <link rel="stylesheet" href="/assets/css/magnific-popup.css">
+        <link rel="stylesheet" href="/assets/css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="/assets/css/themify-icons.css">
+        <link rel="stylesheet" href="/assets/css/slick.css">
+        <link rel="stylesheet" href="/assets/css/nice-select.css">
+        <link rel="stylesheet" href="/assets/css/style.css">
     <title>Employee Register Form</title>
 </head>
 <body>
@@ -51,42 +51,44 @@
                     <div class="signup-content">
                         <div class="signup-form">
                             <h2 class="form-title">Sign up</h2>
-                            <form method="POST" class="register-form" id="register-form">
+                            <% if(typeof error != 'undefined') {%>
+                                <p class = 'alert alert-danger'><%=error%></p>
+                                <% }%>
+                            <form action = '/employer/signup' method="POST" enctype="multipart/form-data" class="register-form" id="register-form">
                                 <div class="form-group">
                                     <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="text" name="name" id="name" placeholder="Your Name"/>
+                                    <input required type="text" name="name" id="name" placeholder="Your Name"/>
                                 </div>
                                 <div class="form-group">
                                     <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                    <input type="email" name="email" id="email" placeholder="Your Email"/>
+                                    <input required type="email" name="email" id="email" placeholder="Your Email"/>
                                 </div>
                                 <div class="form-group">
                                     <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                                    <input type="password" name="pass" id="pass" placeholder="Password"/>
+                                    <input required minlength="8" type="password" name="password" id="pass" placeholder="Password"/>
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
                                     <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"/>
-                                </div>
+                                </div> -->
                              
                                 <div class="form-group">
                                     <label for="name"><i class="fa-solid fa-handshake-angle"></i></label>
-                                    <input type="text" name="company-name" id="name" placeholder="Your Company Name"/>
+                                    <input type="text" name="companyName" id="name" placeholder="Your Company Name"/>
                                 </div>
                                 <div class="form-group">
                                     <label for="name"><i class="fa-solid fa-circle-info"></i></label>
-                                    <input type="text" name="company-description" id="name" placeholder="Company Description"/>
+                                    <input type="text" name="companyDescription" id="name" placeholder="Company Description (Optional) "/>
                                 </div>
                                 <div class="form-group">
                                     <label for="name"><i class="fa-solid fa-location-dot"></i></label>
-                                    <input type="text" name="company-location" id="name" placeholder="Company Location"/>
+                                    <input type="text" name="companyLocation" id="name" placeholder="Company Location"/>
                                 </div>
                                 <h5>Select Your Company Logo</h5>
-                                <div class="form-group">
-                                    
-                                    <label for="company-website-tw d-block">Upload Featured Image</label> <br>
-                                    <label class="btn btn-primary btn-md btn-file">
-                                      Browse File<input type="file" hidden="" id='company-website-tw '>
+                                <div style="height: 100px;" class="form-group">
+                                    <!-- <label for="company-website-tw d-block">Upload Featured Image</label> <br> -->
+                                    <label class="btn-dark">
+                                      <input type="file" name='companyLogo' id='company-website-tw '>
                                     </label>
                                   </div>
                                   <!-- <div class="form-group">
@@ -94,12 +96,12 @@
                                     <input class="btn btn-primary" type="file" name="company-logo" id="name"/>
                                 </div> -->
 
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
                                     <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
-                                </div>
+                                </div> -->
                                 <div class="form-group form-button">
-                                    <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+                                    <input type="submit"  id="signup" class="form-submit" value="Register"/>
                                 </div>
                             </form>
                         </div>
