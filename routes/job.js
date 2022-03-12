@@ -4,6 +4,6 @@ let {getCreateJobForm,getAll,createJob,getOne,search,updateOne}= require('../con
 router.route('/create').get(getCreateJobForm).post(createJob)
 router.route('/all').get(getAll)
 router.route('/:jobId').get(getOne).put(updateOne)
-router.route('/search').get(search)
+router.route('/find/search').get(search)
 
 module.exports= router

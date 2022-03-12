@@ -38,6 +38,11 @@ app.use(cors({
 origin:'*'
 }))
 
+// for(let i =0;i<20000;i++){
+//     if((i%2)==0){
+//     console.log(i)
+//     }
+// }
 
 app.set('view engine','ejs')
 app.set('views','./views')

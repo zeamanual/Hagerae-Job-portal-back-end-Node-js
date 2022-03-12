@@ -24,7 +24,7 @@ let JobSchema = new Schema({
         required:true
     },
     experienceLevel:{
-        type:String,
+        type:Number,
         required:true,
     },
     description:{
@@ -41,7 +41,7 @@ let JobSchema = new Schema({
     },
     type:{
         type:String,
-        enum:['Full Time','Part Time']
+        enum:['Full Time','Part Time','Remote','Freelance']
     },
     publisher:{
         type:mongoose.Schema.Types.ObjectId,

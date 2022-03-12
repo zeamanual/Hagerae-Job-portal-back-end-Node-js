@@ -39,7 +39,7 @@ let getAll =async (req,res)=>{
         let jobs = await Job.find().populate('publisher')
 
         if(req.user){
-            console.log('user is loged in')
+            
             return res.status(200).render('job_listing',{logged:'',role:req.user.role,jobs})
          }
         res.status(200).render('job_listing',{jobs})
@@ -47,12 +47,150 @@ let getAll =async (req,res)=>{
         res.status(500).redirect('/')
     }
 }
-let search=async (req,res)=>{
+let search= async(req,res)=>{
+    console.log(req.query)
+ 
+
     try {
-        let jobs = await Job.find({title:{$regex : req.body.key}})
-    } catch (error) {
+        let {category,
+            fullTime,
+            partTime,
+            remote,
+            Freelance,
+            location,
+            experience12,
+            experience23,
+            experience34,
+            experience44,
+            anyTime,
+            today,
+            days2,
+            days3,
+            days5,
+            days10,
+            salaryFrom,
+            salaryTo,
+            searchKey
+        }= req.query
+        console.log('destructured...',category,
+            fullTime,
+            partTime,
+            remote,
+            Freelance,
+            location,
+            experience12,
+            experience23,
+            experience34,
+            experience44,
+            anyTime,
+            today,
+            days2,
+            days3,
+            days5,
+            days10,
+            salaryFrom,
+            salaryTo
+            )
+        let query={}
+        if(category){
+
+       
+            if(category=='All Category'){
+                
+
+            }else if(category=='Engineering'){
+                query.requiredFieldOfStudy='Engineering'
+
+            }
+            else if(category=='Health'){
+                query.requiredFieldOfStudy='Healthe and Related'
+
+            }
+            else if(category=='Technology'){
+                query.requiredFieldOfStudy={$in:['Computer Science','Information Technology']}
+
+            }
+            else if(category=='Social Science'){
+                query.requiredFieldOfStudy={$in:['Accounting','Management']}
+
+            }
+        }
+        let jobType =[]
+        if(fullTime || partTime || remote || Freelance){
+            if(fullTime){
+                jobType.push('Full Time')
+            } 
+            if(partTime){
+                jobType.push('Part Time')
+                
+            }
+            if(remote){
+                jobType.push('Remote')
+                
+            }
+            else if(Freelance){
+                jobType.push('Freelance')
+                
+            }
+
+            query.type={$in:jobType}
+        }
+       
+
+        if(location){
+            query.location={$regex:location,$options:'i'}
+            }
         
+        
+        let jobExperience = []
+        if(experience12 || experience23 || experience34 || experience44){
+            if(experience12){
+            jobExperience.push(1.5)
+            } 
+            if(experience23){
+                jobExperience.push(2.5)
+            }
+            if(experience34){
+                jobExperience.push(3.5)
+            }
+            if(experience44){
+                jobExperience.push(4.5)
+            }
+
+            query.experienceLevel={$in:jobExperience}
+        }
+        //
+        //
+        // based on post date is not implemented yet
+        //
+        //
+        //
+
+
+        if(salaryFrom){
+            query.salary={$gte: Number(salaryFrom)}
+        }
+        if(salaryTo){
+            query.salary={$lte:Number(salaryTo)}
+        }
+        if(salaryFrom && salaryTo){
+            query.salary = {$gte:Number(salaryFrom),$lte:Number(salaryTo)}
+            
+        }
+
+        let jobs = await Job.find(query).populate('publisher')
+        console.log(query)
+        console.log('found jobs',jobs)
+
+        // res.send('hey body search itme recieved')
+        res.status(200).render('job_listing',{jobs})
+        
+       
+    } catch (error) {
+        console.log(error)
+        res.send('error')
     }
+   
 }
 
 let getOne = async(req,res)=>{
