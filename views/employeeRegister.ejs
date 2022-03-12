@@ -49,7 +49,7 @@
             <section class="signup">
                 <div class="container">
                     <div class="signup-content m-4 row align-items-center border rounded shadow-lg">
-                        <div class="signup-form p-5 col-7">
+                        <div class="signup-form p-5 col-md-7">
                             <h2 class="form-title">Sign up</h2>
                             <% if(typeof error != 'undefined') {%>
                               <p class = 'alert alert-danger'><%=error%></p>
@@ -78,7 +78,7 @@
                                     <label for="inputZip" class="form-label">age</label>
                                     <input required type="number" name='age' min="0" class="form-control" id="inputZip">
                                   </div>
-                                <div class="col-10">
+                                <div class="col-md-10">
                                   <label for="inputAddress" class="form-label">Address</label>
                                   <input required type="text" class="form-control" name = 'address' id="inputAddress" placeholder="eg. Ethiopia, Addis Ababa">
                                 </div>
@@ -122,18 +122,18 @@
                                       <option>+5 Years</option>
                                     </select>
                                   </div>
-                                  <div class="form-group col-12 my-2">
+                                  <div class="form-group col-md-12 my-2">
                                       
                                       <label for="company-website-tw d-block"><h5> Upload Your Resume </h5><p  style="color: rgb(255, 0, 0);"> Only pdf format supported</p></label> <br>
                                       <label class="btn-dark btn-sm ">
-                                        <input required  style="" type="file" name='resume'  id='company-website-tw '>
+                                        <input required style="max-width:200px" style="" type="file" name='resume'  id='company-website-tw '>
                                       </label>
                                     </div>
-                                    <div class="form-group col-12 my-2">
+                                    <div class="form-group col-md-12 my-2">
                                       
                                         <label for="company-website-tw d-block"><h5> Upload Your Educational Qualification Documents<p style="color: rgb(255, 0, 0);">Only pdf format supported</p></h5></label> <br>
                                         <label class="btn-dark btn-sm ">
-                                          <input required  type="file" name='doc'  id='company-website-tw '>
+                                          <input style="max-width:200px" required  type="file" name='doc'  id='company-website-tw '>
                                         </label>
                                       </div>
                                 <!-- <div class="col-12">
@@ -163,15 +163,15 @@
                                     </label>
                                   </div>
                                 </div> -->
-                                <div class="col-12">
+                                <div class="col-md-12">
                                   <button type="submit" class="btn btn-primary">Sign up</button>
                                 </div>
                               </form>
                             
                         </div>
-                        <div class="signup-image p-5 col-5">
-                            <figure><img src="/assets/form/images/signup-image.jpg" alt="sing up image"></figure>
-                            <a href=""> <p style="text-align: center;">I am already member</p> </a>
+                        <div class="signup-image p-5 col-md-5">
+                            <figure><img src="/assets/form/images/signup-image.jpg" style="width: 100%;" alt="sing up image"></figure>
+                            <a href="/anyuser/login"> <p style="text-align: center;">I am already member</p> </a>
                             
                         </div>
                     </div>

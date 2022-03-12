@@ -9,12 +9,14 @@ let getEmployerSignupForm=(req,res)=>{
 }
 
 let employerSignup = async(req,res)=>{
+  
     if(req.file?.fieldname){
         
         try {
             
             let {name,email,password,companyName,companyDescription,companyLocation} = req.body
-            if(await Employer.find({email:email}) && await Employee.find({email:email})){
+      
+            if( await Employer.findOne({email:email}) || await Employee.findOne({email:email})){
                 return res.status(400).render('employeerRegister',{error:"Email Already Registered"})
             }
             let hashed = await bcrypt.hash(password,10)
@@ -30,7 +32,7 @@ let employerSignup = async(req,res)=>{
                 companyLogoPath
             })
         
-    res.send({status:'sucess'})
+    res.status(201).redirect('/anyuser/login')
         } catch (error) {
             res.status(500).redirect('/employer/signup')
         }

@@ -13,21 +13,21 @@
        <!-- <link rel="stylesheet" href="/assets/form/css/style.css"> -->
 
     <!-- CSS here -->
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-        <link rel="stylesheet" href="assets/css/flaticon.css">
-        <link rel="stylesheet" href="assets/css/price_rangs.css">
-        <link rel="stylesheet" href="assets/css/slicknav.css">
-        <link rel="stylesheet" href="assets/css/animate.min.css">
-        <link rel="stylesheet" href="assets/css/magnific-popup.css">
-        <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
-        <link rel="stylesheet" href="assets/css/themify-icons.css">
-        <link rel="stylesheet" href="assets/css/slick.css">
-        <link rel="stylesheet" href="assets/css/nice-select.css">
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="/assets/css/flaticon.css">
+        <link rel="stylesheet" href="/assets/css/price_rangs.css">
+        <link rel="stylesheet" href="/assets/css/slicknav.css">
+        <link rel="stylesheet" href="/assets/css/animate.min.css">
+        <link rel="stylesheet" href="/assets/css/magnific-popup.css">
+        <link rel="stylesheet" href="/assets/css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="/assets/css/themify-icons.css">
+        <link rel="stylesheet" href="/assets/css/slick.css">
+        <link rel="stylesheet" href="/assets/css/nice-select.css">
+        <link rel="stylesheet" href="/assets/css/style.css">
         <link rel="stylesheet" href="/assets/css/widgEditor.css">
     <title>Employee Register Form</title>
-    <script type="text/javascript" src="assets/js/widgEditor.js"></script>
+    <script type="text/javascript" src="/assets/js/widgEditor.js"></script>
 </head>
 <body>
       <!-- Preloader Start -->
@@ -53,23 +53,23 @@
                     <div class="signup-content m-4 row align-items-center border rounded shadow-lg">
                         <div class="signup-form p-5 col-7">
                             <h2 class="form-title">Job Post</h2>
-                            <form class="row g-3">
+                            <form action = '/job/create' method="post" class="row g-3">
                                 <div class="col-md-12 my-2">
                                     <label for="inputEmail4" class="form-label">Position Title</label>
-                                    <input type="text" class="form-control" id="inputEmail4">
+                                    <input required type="text" name='title' class="form-control" id="inputEmail4">
                                   </div>
                                   <div class="col-md-4">
                                     <label for="inputZip" class="form-label">Number of Vacanccy</label>
-                                    <input type="number" min="1" class="form-control" id="inputZip">
+                                    <input required type="number" name = 'vacanccy' min="1" class="form-control" id="inputZip">
                                   </div>
                                 <div class="col-8">
                                   <label for="inputAddress" class="form-label">Job Location</label>
-                                  <input type="text" class="form-control" id="inputAddress" placeholder="eg. Ethiopia, Addis Ababa">
+                                  <input required type="text" name='location' class="form-control" id="inputAddress" placeholder="eg. Ethiopia, Addis Ababa">
                                 </div>
                                 <div class="col-md-6 my-4">
                                     <label for="inputState" class="form-label">Required Educational Level</label>
-                                    <select id="inputState" class="form-select">
-                                      <option >Ilitrate</option>
+                                    <select required name = 'requiredEducationalLevel' id="inputState" class="form-select">
+                                      <option >None</option>
                                       <option>Primary</option>
                                       <option>Secondary</option>
                                       <option >preparatory</option>
@@ -83,26 +83,37 @@
                                   </div>
                                   <div class="col-md-6 my-4">
                                     <label for="inputState" class="form-label">Required Field of Study</label>
-                                    <select id="inputState" class="form-select">
-                                        <option >Select</option>
-                                      <option >Engineering</option>
-                                      <option>Medicine</option>
-                                      <option>Healthe Officer</option>
-                                      <option>Nursing</option>
-                                      <option>Computer Science</option>
-                                      <option>Information Technology</option>
-                                      <option>Accounting</option>
-                                      <option>Management</option>
+                                    <select required name ='requiredFieldOfStudy' id="inputState" class="form-select">
+                                        <option >None</option>
+                                        <option >Engineering</option>
+                                        <option>Healthe and Related</option>
+                                        <option>Computer Science</option>
+                                        <option>Information Technology</option>
+                                        <option>Accounting</option>
+                                        <option>Management</option>
                                     </select>
                                   </div>
                                   <div class="col-md-6 my-3">
                                     <label for="inputState" class="form-label">Experience Level</label>
-                                    <select id="inputState" class="form-select">
+                                    <select required name='experienceLevel' id="inputState" class="form-select">
                                       <option selected>0 Years</option>
                                       <option>1-2 Years</option>
                                       <option>3-4 Years</option>
                                       <option>+5 Years</option>
                                     </select>
+                                  </div>
+                                  <div class="col-md-6 my-3">
+                                    <label for="inputState" class="form-label">Job Type</label>
+                                    <select required name='type' id="inputState" class="form-select">
+                                      <option selected>Full Time</option>
+                                      <option>Part Time</option>
+                                    
+                                    </select>
+                                  </div>
+                                  
+                                  <div class="col-8">
+                                    <label for="inputAddress" class="form-label">Job Salary</label>
+                                    <input required type="number" name='salary' class="form-control" id="inputAddress" placeholder="">
                                   </div>
 
                                     <div class="col-12">
@@ -112,7 +123,7 @@
                                                 Job Description
                                                </h4>
                                             </label>
-                                            <textarea id="noise" name="noise" class="widgEditor nothing">&lt;p&gt;widgEditor &lt;strong&gt;automatically&lt;/strong&gt; integrates the content that was in the textarea!&lt;/p&gt;</textarea>
+                                            <textarea required id="noise" name="description"  class="widgEditor nothing">Job Description here....</textarea>
                                         </fieldset>
                                         <fieldset class="submit">
                                         </fieldset>

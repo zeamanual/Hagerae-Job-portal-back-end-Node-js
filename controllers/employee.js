@@ -6,7 +6,7 @@ let getEmployeeSignupForm = (req,res)=>{
     res.status(200).render('employeeRegister')
 }
 let employeeSignup = async(req,res)=>{
-    // console.log('hey',req.files?.doc)
+   
     if(req.files?.resume && req.files?.doc){
         try {
            
@@ -19,7 +19,7 @@ let employeeSignup = async(req,res)=>{
         
             let {name,email,password,gender,age,address,educationalLevel,fieldOfStudy,experienceLevel}=req.body
 
-            if(await Employer.find({email:email}) && await Employee.find({email:email})){
+            if(await Employer.findOne({email:email}) && await Employee.findOne({email:email})){
                 return res.status(400).render('employeeRegister',{error:"Email Already Registered"})
             }
             let hashed = await bcrypt.hash(password,10)
@@ -36,7 +36,7 @@ let employeeSignup = async(req,res)=>{
                 resumePath,
                 eduQuaDocPath
             })
-            res.json({status:'successful'})
+           res.status(201).redirect('/anyuser/login')
         } catch (error) {
             
         }

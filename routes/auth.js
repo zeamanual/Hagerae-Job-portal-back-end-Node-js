@@ -1,6 +1,14 @@
 let router = require('express').Router()
-let {getLoginForm,login}= require('../controllers/auth')
-router.route('/login').get()
+let {passport}= require('../config/passport config')
 
+let {getLoginForm,login,logout}= require('../controllers/auth')
+router.route('/login').get(getLoginForm).post(passport.authenticate('local',{
+    failureRedirect:'/anyuser/login',
+    successRedirect:'/',
+    failureFlash:true
+    
+}),login)
 
-module.exports = router
+router.route('/logout').get(logout)
+
+module.exports = {router,passport}

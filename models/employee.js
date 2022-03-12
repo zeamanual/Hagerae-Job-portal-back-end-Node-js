@@ -58,6 +58,10 @@ let EmployeeSchema = new Schema({
         type:String,
         required:true,
         default:null
+    },
+    role:{
+        type:String,
+        default:'EMPLOYEE'
     }
 
 })
